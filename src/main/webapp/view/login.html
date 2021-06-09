@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:http="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>login</title>
+    <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+</head>
+<body>
+<form>
+    <input type="text" id="username" placeholder="enter username">
+    <input type="password" id="password" placeholder="enter password">
+<!--    绑定点击事件button-->
+    <input type="button" id="loginBtn" value="login">
+</form>
+<script>
+    // 使用ajax完成异步
+    $("#loginBtn").click(function (){
+        $.ajax({
+            url:"/WEB04/usr/login",
+            type:"post",
+            data:{
+                username:$("#username").val(),
+                password:$("#password").val()
+            },
+            dataType:"text",
+            success:function (dataInfo){
+                console.log(dataInfo);
+            }
+        })
+    })
+</script>
+</body>
+</html>

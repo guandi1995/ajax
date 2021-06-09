@@ -1,6 +1,6 @@
 package com.ajax.controller;
 
-import com.CRUD.service.StudentServiceImpl;
+import com.ajax.service.StudentServiceImpl;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

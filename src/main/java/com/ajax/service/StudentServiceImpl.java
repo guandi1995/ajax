@@ -1,9 +1,9 @@
 package com.ajax.service;
 
-import com.CRUD.dao.StudentDao;
-import com.CRUD.dao.StudentDaoImpl;
-import com.CRUD.pojo.Message;
-import com.CRUD.pojo.Student;
+import com.ajax.dao.StudentDao;
+import com.ajax.dao.StudentDaoImpl;
+import com.ajax.pojo.Message;
+import com.ajax.pojo.Student;
 
 import java.sql.SQLException;
 import java.util.List;

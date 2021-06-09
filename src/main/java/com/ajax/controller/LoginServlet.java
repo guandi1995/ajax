@@ -7,10 +7,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 /**
- * session代码演示
- * 创建和存储session
+ * ajax异步登陆
  */
 @WebServlet(name = "LoginServlet", value = "/usr/login")
 public class LoginServlet extends HttpServlet {
@@ -28,8 +28,9 @@ public class LoginServlet extends HttpServlet {
             //获取session，将"admin"存入session域中
             HttpSession session = request.getSession();
             session.setAttribute("accountInfo", "admin");
-            //登陆成功后，重定向到/usr/fetchStudent
-            response.sendRedirect("/WEB03/usr/fetchStudent");
+            //异步直接走响应，不需要重定向或转发
+            PrintWriter writer = response.getWriter();
+            writer.println("success");
         }
         else
             response.sendRedirect("/WEB03/view/error.html");

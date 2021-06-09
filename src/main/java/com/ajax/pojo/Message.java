@@ -7,8 +7,23 @@ package com.ajax.pojo;
 public class Message {
     private String message;
     private boolean status;
+    private Object obj;
+
+    public Object getObj() {
+        return obj;
+    }
+
+    public void setObj(Object obj) {
+        this.obj = obj;
+    }
 
     public Message() {
+    }
+
+    public Message(String message, boolean status, Object obj) {
+        this.message = message;
+        this.status = status;
+        this.obj = obj;
     }
 
     public Message(String message, boolean status) {

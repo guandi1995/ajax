@@ -1,7 +1,7 @@
 package com.ajax.service;
 
-import com.CRUD.pojo.Message;
-import com.CRUD.pojo.Student;
+import com.ajax.pojo.Message;
+import com.ajax.pojo.Student;
 
 import java.util.List;
 import java.util.Map;

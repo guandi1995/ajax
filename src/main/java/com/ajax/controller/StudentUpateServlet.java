@@ -1,8 +1,8 @@
 package com.ajax.controller;
 
-import com.CRUD.pojo.Message;
-import com.CRUD.pojo.Student;
-import com.CRUD.service.StudentServiceImpl;
+import com.ajax.pojo.Message;
+import com.ajax.pojo.Student;
+import com.ajax.service.StudentServiceImpl;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

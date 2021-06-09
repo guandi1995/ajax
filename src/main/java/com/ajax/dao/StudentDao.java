@@ -1,6 +1,6 @@
 package com.ajax.dao;
 
-import com.CRUD.pojo.Student;
+import com.ajax.pojo.Student;
 
 import java.sql.SQLException;
 import java.util.List;
