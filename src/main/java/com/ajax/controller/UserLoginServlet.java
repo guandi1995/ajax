@@ -3,6 +3,7 @@ package com.ajax.controller;
 import com.ajax.pojo.Message;
 import com.ajax.pojo.User;
 import com.ajax.service.UserServiceImpl;
+import com.alibaba.fastjson.JSON;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -31,8 +32,9 @@ public class UserLoginServlet extends HttpServlet {
             HttpSession session = request.getSession();
             session.setAttribute("accountInfo", message.getObj());
         }
-        //异步的回参（如果是text的dataType）
+        //异步的回参（text->String或json->Object）
         PrintWriter writer = response.getWriter();
-        writer.println(message.getMessage());
+        String s = JSON.toJSONString(message);
+        writer.println(s);
     }
 }

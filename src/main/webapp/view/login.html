@@ -22,9 +22,14 @@
                 username:$("#username").val(),
                 password:$("#password").val()
             },
-            dataType:"text",
+            dataType:"json",
             success:function (dataInfo){
                 console.log(dataInfo);
+                if (dataInfo.status){
+                    window.location.href="/WEB04/view/success.html";
+                }else {
+                    alert(dataInfo.message);
+                }
             }
         })
     })
