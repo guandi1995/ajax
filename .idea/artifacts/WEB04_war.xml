@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="WEB04:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>WEB04</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="WEB04-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="WEB04:war exploded" />
+    </root>
+  </artifact>
+</component>
