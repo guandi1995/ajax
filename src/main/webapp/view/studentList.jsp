@@ -24,27 +24,53 @@
     </tr>
     <tbody id="father"></tbody>
 </table>
+
 <script>
-    $.ajax({
-        url:"/WEB04/usr/fetchStudent",
-        data:{},
-        type:"post",
-        dataType:"json",
-        success:function (dataInfo){
-            console.log(dataInfo);
-            for (var i=0; i<dataInfo.length; i++){
-                var student = dataInfo[i];
-                var html = "<tr> " +
-                    "<td>"+ student.stuid+"</td> " +
-                    "<td>"+ student.stuname+"</td> " +
-                    "<td>"+ student.age+"</td> " +
-                    "<td>"+ student.gender+"</td> " +
-                    "<td>"+ student.major_id+"</td> " +
-                    "</tr>";
-                $("#father").append(html);
+
+    loadPage();
+
+    function loadPage(){
+        $.ajax({
+            url:"/WEB04/usr/fetchStudent",
+            data:{},
+            type:"post",
+            dataType:"json",
+            success:function (dataInfo){
+                $("#father").html("");
+                console.log(dataInfo);
+                for (var i=0; i<dataInfo.length; i++){
+                    var student = dataInfo[i];
+                    var html = "<tr> " +
+                        "<td>"+ student.stuid+"</td> " +
+                        "<td>"+ student.stuname+"</td> " +
+                        "<td>"+ student.age+"</td> " +
+                        "<td>"+ student.gender+"</td> " +
+                        "<td>"+ student.major_id+"</td> " +
+                        "<td><input type='button' value='detele', onclick='clickHandler("+student.stuid+")'></td> " +
+                        "</tr>";
+                    $("#father").append(html);
+                }
             }
-        }
-    })
+        })
+    }
+
+    //delete student
+    function clickHandler(stuid) {
+        $.ajax({
+            url: "/WEB04/usr/deleteStudent",
+            data: {stuid:stuid},
+            type: "post",
+            dataType: "json",
+            success:function (dataInfo){
+                if (dataInfo.status){
+                    console.log(dataInfo.message);
+                    loadPage();
+                }
+                else
+                    console.log(dataInfo.message);
+            }
+        })
+    }
 </script>
 </body>
 </html>
