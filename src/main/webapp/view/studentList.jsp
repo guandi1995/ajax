@@ -10,9 +10,17 @@
 <head>
     <title>Student Info</title>
     <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
-
+<%--    页面跳转--%>
+    <script>
+        $().ready(function (){
+            $("#addBtn").click(function (){
+                window.location.href="/WEB04/view/studentInsert.jsp";
+            })
+        })
+    </script>
 </head>
 <body>
+<input type="button" value="Insert Student" id="addBtn">
 <table style="border: 1px;width: 100%">
     <tr>
         <td>id</td>
@@ -29,6 +37,7 @@
 
     loadPage();
 
+    //fetch student
     function loadPage(){
         $.ajax({
             url:"/WEB04/usr/fetchStudent",
