@@ -18,11 +18,11 @@
     <input type="text" name="age" placeholder="student age"><br>
     <input type="text" name="gender" placeholder="student gender"><br>
     <input type="text" name="major_id" placeholder="student major id"><br>
-    <input type="button" value="insert" onclick="clickHandler()"><br>
+    <input type="button" value="insert" onclick="insertStudent()"><br>
 </form>
 <script>
     // insert student
-    function clickHandler(){
+    function insertStudent(){
         $.ajax({
             url:"/WEB04/usr/insertStudent",
             data:$("#insertStuForm").serialize(),//使用表单序列化传递参数

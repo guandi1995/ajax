@@ -1,6 +1,7 @@
 package com.ajax.controller;
 
 import com.ajax.service.StudentServiceImpl;
+import com.alibaba.fastjson.JSON;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -8,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Map;
 
 /**
@@ -28,7 +30,8 @@ public class FetchStudentByIdServlet extends HttpServlet {
         String stuid = request.getParameter("stuid");
         StudentServiceImpl studentService = new StudentServiceImpl();
         Map map = studentService.fetchStudentById(stuid);
-        request.setAttribute("student", map);
-        request.getRequestDispatcher("/view/studentUpdate.jsp").forward(request, response);
+        //将map结合以json的格式返回前台
+        PrintWriter writer = response.getWriter();
+        writer.println(JSON.toJSONString(map));
     }
 }

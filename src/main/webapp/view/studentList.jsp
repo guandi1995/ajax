@@ -10,17 +10,11 @@
 <head>
     <title>Student Info</title>
     <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
-<%--    页面跳转--%>
-    <script>
-        $().ready(function (){
-            $("#addBtn").click(function (){
-                window.location.href="/WEB04/view/studentInsert.jsp";
-            })
-        })
-    </script>
 </head>
 <body>
-<input type="button" value="Insert Student" id="addBtn">
+
+<input type="button" value="Insert Student" onclick="toInsertPage()">
+
 <table style="border: 1px;width: 100%">
     <tr>
         <td>id</td>
@@ -55,7 +49,8 @@
                         "<td>"+ student.age+"</td> " +
                         "<td>"+ student.gender+"</td> " +
                         "<td>"+ student.major_id+"</td> " +
-                        "<td><input type='button' value='detele', onclick='clickHandler("+student.stuid+")'></td> " +
+                        "<td><input type='button' value='detele', onclick='clickDelete("+student.stuid+")'></td> " +
+                        "<td><input type='button' value='update', onclick='toUpdatePage("+student.stuid+")'></td> " +
                         "</tr>";
                     $("#father").append(html);
                 }
@@ -63,8 +58,13 @@
         })
     }
 
+    //go to insert student page
+    function toInsertPage(){
+        window.location.href="/WEB04/view/studentInsert.jsp";
+    }
+
     //delete student
-    function clickHandler(stuid) {
+    function clickDelete(stuid) {
         $.ajax({
             url: "/WEB04/usr/deleteStudent",
             data: {stuid:stuid},
@@ -80,6 +80,12 @@
             }
         })
     }
+
+    //go to edit student page
+    function toUpdatePage(stuid) {
+        window.location.href="/WEB04/view/studentEdit.jsp?stuid="+stuid;
+    }
+
 </script>
 </body>
 </html>
