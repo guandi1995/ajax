@@ -11,12 +11,8 @@ import java.util.Map;
 
 public class test {
     public static void main(String[] args) {
-        UserDaoImpl userDao = new UserDaoImpl();
-        User user = new User();
-        user.setId(10);
-        user.setUsername("dguan@purdue.edu");
-        user.setPassword("123456");
-        List<Map> maps = userDao.fetchUser(user);
+        MajorDaoImpl majorDao = new MajorDaoImpl();
+        List<Map> maps = majorDao.fetchMajor();
         System.out.println(maps);
     }
 }

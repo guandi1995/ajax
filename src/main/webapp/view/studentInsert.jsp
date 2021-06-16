@@ -17,7 +17,9 @@
     <input type="text" name="stuname" placeholder="student name"><br>
     <input type="text" name="age" placeholder="student age"><br>
     <input type="text" name="gender" placeholder="student gender"><br>
-    <input type="text" name="major_id" placeholder="student major id"><br>
+    <select name="major_id" id="major_id">
+
+    </select><br>
     <input type="button" value="insert" onclick="insertStudent()"><br>
 </form>
 <script>
@@ -38,6 +40,22 @@
             }
         })
     }
+
+    //select options for major_id and major_code
+    $.ajax({
+        url:"/WEB04/usr/fetchMajor",
+        data:{},
+        type:"post",
+        dataType:"json",
+        success:function (dataInfo){
+            console.log(dataInfo);
+            $("#major_id").append("<option value=''>---please select---</option>")
+            for (var i = 0; i < dataInfo.length; i++){
+                var list = dataInfo[i];
+                $("#major_id").append("<option value='"+list.major_Id+"'>"+list.major_code+"</option>");
+            }
+        }
+    })
 </script>
 </body>
 </html>
